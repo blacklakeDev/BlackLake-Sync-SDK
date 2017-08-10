@@ -3,12 +3,12 @@
 
 ## **Installation**
 ```
-npm i --save 
+npm i blacklake-sync-sdk
 ```
 ## **Usage**
 引入 BlackLake Sync SDK
 ```js
-const BlcakLakeSync = require('');
+const BlcakLakeSync = require('blacklake-sync-sdk');
 
 const client = new BlcakLakeSync(yourUsername, yourPassword);
 ```
@@ -19,7 +19,7 @@ const client = new BlcakLakeSync(yourUsername, yourPassword);
 - 返回值：`Promise`对象
     - `resolve`为`Connect Success`
     - `reject`为连接失败原因，如`手机号不存在`、`密码不正确`、`连接被拒绝,请联系相关人员`等
-- Example
+- Example
 ```js
 client.connect().then(data => {
   console.log(data);   // Connect Success
@@ -53,7 +53,7 @@ productOrder格式
 
 options = [
     {
-        productOrderNo: "1112",                 // 订单唯一No,string 
+        productOrderNo: "1112",                 // 订单唯一No,string 
         materialCode: 'glass',                  // 产出物料的编码
         materialAmount: '123',                  // 产出物料的数量
         startTime: "2017-08-01 11:11:11",       // 在黑湖系统里显示的开始时间,'yyyy-mm-dd hh:mm:ss'
@@ -67,7 +67,7 @@ options = [
 - 返回值：`Promise`对象
     - `resolve`为JSON对象：`{ createdAmount: num1, updatedAmount: num2 }`，其中`num1`为新增数，`num2`为更新数
     - `reject`为连接失败原因，如`options必须为Array`, `找不到type`，`参数错误`等
-- Example
+- Example
 ```js
 const options = [
     {
