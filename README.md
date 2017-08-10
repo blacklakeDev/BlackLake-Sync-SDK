@@ -3,7 +3,7 @@
 
 ## **Installation**
 ```
-npm i blacklake-sync-sdk
+npm i blacklake-sync-sdk --save
 ```
 ## **Usage**
 引入 BlackLake Sync SDK
@@ -30,14 +30,14 @@ client.connect().then(data => {
 
 ---
 
-### `batch(type, options)`
+### `batch(type, items)`
 - 功能：批量导入数据
 - 参数
     - `type`:  `material`、`productOrder`
-    - `options`:  数组形式，具体要求如下
+    - `items`:  数组形式，具体要求如下
 ```js
 material格式
-options = [
+items = [
     {
         name: '玻璃',                            // 物料名称
         code: 'glass',                          // 物料编码
@@ -51,7 +51,7 @@ options = [
 productOrder格式
 注意`startTime`, `endTime`和`targetDate`必须为'yyyy-mm-dd hh:mm:ss'格式
 
-options = [
+items = [
     {
         productOrderNo: "1112",                 // 订单唯一No,string 
         materialCode: 'glass',                  // 产出物料的编码
@@ -66,10 +66,10 @@ options = [
 ```
 - 返回值：`Promise`对象
     - `resolve`为JSON对象：`{ createdAmount: num1, updatedAmount: num2 }`，其中`num1`为新增数，`num2`为更新数
-    - `reject`为连接失败原因，如`options必须为Array`, `找不到type`，`参数错误`等
+    - `reject`为连接失败原因，如`items必须为Array`, `找不到type`，`参数错误`等
 - Example
 ```js
-const options = [
+const items = [
     {
         productOrderNo: "1112",
         materialCode: 'glass',
@@ -82,7 +82,7 @@ const options = [
     }        
 ];
 
-client.batch('productOrder', options).then(result => {
+client.batch('productOrder', items).then(result => {
     console.log(result);    // { createdAmount: 1, updatedAmount: 0 }
 }).catch(err => {
     console.log(err);       // 错误原因

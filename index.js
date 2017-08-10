@@ -19,7 +19,7 @@ module.exports = class BlcakLakeSync {
         });
     }
 
-    batch(type, options) {
-        return batch(this.token, type, options);
+    batch(type, items) {
+        return batch(this.token, type, items);
     }
 }

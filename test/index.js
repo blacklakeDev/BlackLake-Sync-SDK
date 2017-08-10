@@ -2,7 +2,7 @@ const BlcakLakeSync = require('../index');
 
 const client = new BlcakLakeSync('heihukeji', 'heihukeji');
 
-const options = [{
+const items = [{
   materialCode: "glass",
   materialAmount: "300",
   startTime: "2017-08-07 11:11:11",
@@ -16,7 +16,7 @@ const options = [{
 client.connect().then(data => {
   console.log(data);
   
-  client.batch('productOrder', options).then(result => {
+  client.batch('productOrder', items).then(result => {
     console.log(result);
   }).catch(err => {
     console.log(err);
