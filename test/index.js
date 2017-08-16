@@ -15,12 +15,14 @@ const items = [{
 
 client.connect().then(data => {
   console.log(data);
-  
-  client.batch('productOrder', items).then(result => {
-    console.log(result);
-  }).catch(err => {
-    console.log(err);
-  });
+
+  for (let i = 0; i < 50; i++) {
+    client.batch('productOrder', items).then(result => {
+      console.log(result);
+    }).catch(err => {
+      console.log(err);
+    });    
+  }
 }).catch(err => {
   console.log(err);
 });

@@ -1,3 +1,4 @@
+const sem = require('semaphore')(5);
 const {
     connect,
     batch
@@ -20,6 +21,16 @@ module.exports = class BlcakLakeSync {
     }
 
     batch(type, items) {
-        return batch(this.token, type, items);
+        return new Promise((resolve, reject) => {
+            sem.take(() => {
+                resolve(batch(this.token, type, items));
+            });
+        }).then(data => {
+            sem.leave();
+            return data;
+        }).catch(err => {
+            sem.leave();
+            return err;
+        });
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "blacklake-sync-sdk",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "将数据同步至黑湖数据库",
   "keywords": [
     "blacklake"
@@ -21,6 +21,7 @@
   "dependencies": {
     "jssha": "^2.3.1",
     "lokka": "^1.7.0",
-    "lokka-transport-http": "^1.6.1"
+    "lokka-transport-http": "^1.6.1",
+    "semaphore": "^1.1.0"
   }
 }
