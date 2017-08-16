@@ -1,6 +1,6 @@
 {
   "name": "blacklake-sync-sdk",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "将数据同步至黑湖数据库",
   "keywords": [
     "blacklake"
